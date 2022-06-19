@@ -1,0 +1,35 @@
+AppLayout:
+
+<AppLayout>:
+    cols: 1
+
+    InputBox:
+        orientation: 'horizontal'
+        spacing: '5dp'
+        size_hint: 1, None
+        height: '40dp'
+        text: self.text_label
+
+        Path:
+        SubmitButton:
+            on_press: root.find_duplicated_files(text)
+            size_hint: None, 1
+            width: '80dp'
+            text: 'Submit'
+            font_size: 18
+            background_color: 0, 1, 0, 1
+    Output:
+        Label:
+            text: ''
+
+<InputBox@BoxLayout>
+
+<Output@ScrollView>
+
+<Path@TextInput>:
+    multiline: False
+
+<SubmitButton@Button>
+
+<Result@AppLayout>
+

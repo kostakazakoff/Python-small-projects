@@ -1,0 +1,58 @@
+<Button>
+    font_size: 18
+
+<InputLabel@Label>
+    size_hint: 1, None
+    height: '40dp'
+
+<TextInput>
+    background_color: (200/255, 200/255, 200/255, 1)
+
+<MainWidget>
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        # spacing: 20
+        padding: 40
+        InputLabel:
+
+            text: 'Choose a country'
+        TextInput:
+            multiline: False
+            # on_text_validate: root.submit_press()
+            # focus: True
+            size_hint: 1, None
+            height: '40dp'
+            id: input_country
+        InputLabel:
+            text: 'Choose an item to explore'
+        TextInput:
+            multiline: False
+            size_hint: 1, None
+            height: '40dp'
+            id: input_item
+        InputLabel:
+            text: 'Enter a target currency for the prices'
+        TextInput:
+            multiline: False
+            size_hint: 1, None
+            height: '40dp'
+            id: input_currency
+        Button:
+            background_color: 255/255, 20/255, 20/255, 1
+            size_hint: 1, None
+            height: '40dp'
+            text: 'Submit'
+            on_press: root.submit_press()
+        BoxLayout:
+            orientation: 'vertical'
+            padding_top: 20
+            ScrollView:
+                Label:
+                    text: 'Wait for the results here'
+                    size_hint: 1, None
+                    size: self.width, self.height
+                    id: output_box
+
+
