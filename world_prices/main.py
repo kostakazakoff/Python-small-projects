@@ -1,5 +1,4 @@
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
@@ -116,13 +115,13 @@ class MainWidget(Widget):
         self.ids.output_box.text = country_prices(input_country, input_item, currency_input)
 
     def country_clicked(self, value):
-        self.ids.output_box.text = f'Country: {value}\n\nYou have to wait a little for the result calculation'
+        self.ids.output_box.text = f'Your choice: {value}\n\nYou have to wait a little for the result calculation'
 
     def item_clicked(self, value):
-        self.ids.output_box.text = f'Item: {value}\n\nYou have to wait a little for the result calculation'
+        self.ids.output_box.text = f'Your choice: {value}\n\nYou have to wait a little for the result calculation'
 
     def currency_clicked(self, value):
-        self.ids.output_box.text = f'Item: {value}\n\nYou have to wait a little for the result calculation'
+        self.ids.output_box.text = f'Your choice: {value}\n\nYou have to wait a little for the result calculation'
 
 
 class WorldPrices(App):
