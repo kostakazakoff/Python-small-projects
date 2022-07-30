@@ -14,4 +14,4 @@ Explore the quality of life in a different countries around the world
 >
 
 
-### Please, get your own key from rapidapi.com ([Link](http://[a.com](https://rapidapi.com/traveltables/api/cost-of-living-and-prices))) and enter it to the right place in code -  "X-RapidAPI-Key": "##### ENTER YOUR KEY HERE ######". I cant't publish my personal key because of the rules :)
+### Please, get your own key from rapidapi.com (https://rapidapi.com/traveltables/api/cost-of-living-and-prices) and enter it to the right place in code -  "X-RapidAPI-Key": "##### ENTER YOUR KEY HERE ######". I cant't publish my personal key because of the rules :)
