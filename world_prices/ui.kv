@@ -1,0 +1,60 @@
+<Picker@Spinner>
+    font_size: 14
+    background_normal: ''
+    background_color: 89/255, 112/255, 125/255, 1
+
+<SubmitButton@Button>
+    font_size: 14
+    background_normal: ''
+    background_color: 26/255, 59/255, 87/255, 1
+
+
+<MainWidget>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        spacing: 10
+        padding: 40
+
+        Picker:
+            id: country_name
+            size_hint: 1, None
+            height: '40dp'
+            text: 'Country'
+            values: root.countries
+            on_text: root.country_clicked(country_name.text)
+
+        Picker:
+            id: item_name
+            size_hint: 1, None
+            height: '40dp'
+            text: 'Item'
+            values: root.items
+            on_text: root.item_clicked(item_name.text)
+
+        Picker:
+            id: input_currency
+            size_hint: 1, None
+            height: '40dp'
+            text: 'Currency'
+            values: root.currencies
+            on_text: root.currency_clicked(input_currency.text)
+
+        SubmitButton:
+            size_hint: 1, None
+            height: '40dp'
+            text: 'Submit'
+            on_press: root.submit_press()
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding_top: 20
+            ScrollView:
+                Label:
+                    id: output_box
+                    text: root.output_text
+                    text_size: self.size
+                    size_hint: 1, None
+                    halign: 'center'
+                    height: self.height
+                    font_size: 16
