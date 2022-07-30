@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/world_prices_api.iml" filepath="$PROJECT_DIR$/.idea/world_prices_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/image_to_text_with_translation.iml" filepath="$PROJECT_DIR$/.idea/image_to_text_with_translation.iml" />
     </modules>
   </component>
 </project>

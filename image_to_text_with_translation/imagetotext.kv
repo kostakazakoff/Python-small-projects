@@ -1,0 +1,43 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+<MainWidget>
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        # size: self.parent.size
+        # pos: self.parent.pos
+        spacing: 10
+        padding: 40
+
+        Button:
+            font_size: 14
+            background_normal: ''
+            background_color: 59/255, 108/255, 3/255, 1
+            size_hint: 1, None
+            height: '40dp'
+            # pos_hint: {'x':.2, 'y':.2}
+            text: 'TRANSLATE'
+            id: translate_button
+            on_release: root.translate_press()
+
+        ScrollView:
+            Label:
+                halign: 'left'
+                valign: 'top'
+                id: translated_box
+                text_size: self.size
+                size_hint: 1, None
+                height: '2000dp'
+                font_size: 14
+                text: root.ocr_text
+
+        Button:
+            font_size: 14
+            background_normal: ''
+            background_color: 59/255, 108/255, 3/255, 1
+            size_hint: 1, None
+            height: '40dp'
+            text: 'COPY TO CLIPBOARD'
+            id: copy_button
+            on_press: Clipboard.copy(translated_box.text)
+            on_release: root.copy_button_on_release()
