@@ -4,57 +4,81 @@ from translate import Translator
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import ObjectProperty
 
-Window.size = (600, 600)
-assert isinstance(Window, object)
+Window.size = (900, 600)
 path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.tesseract_cmd = path_to_tesseract
+
+image = ObjectProperty(None)
+translation = ObjectProperty(None)
+recognised_text = ObjectProperty(None)
 
 
-def ocr():
-    pytesseract.tesseract_cmd = path_to_tesseract
-    img = Image.open(r'D:\d.png')
-    output = pytesseract.image_to_string(img)
-    with open(r'D:\converted.txt', 'w') as f:
-        f.write(output)
-    return output
+class WindowManager(ScreenManager):
+    pass
 
 
-def translate_to_bg():
-    with open(r'D:\converted.txt', 'w') as f:
-        f.write(text)
+class MainWindow(Screen):
+    recognised_text = ObjectProperty(None)
 
-    translation = ''
-    translator = Translator(from_lang="en", to_lang="bg")
-    for sentence in text.split('\n'):
-        translation += f'{translator.translate(sentence)}\n'
+    def ocr(self):
+        global image, recognised_text
+        print(image)
+        if type(recognised_text) == str:
+            self.ids.text_output.text = recognised_text
+            return
+        try:
+            recognised_text = pytesseract.image_to_string(image, config='--psm 6')
+            self.ids.text_output.text = recognised_text
+            print(recognised_text)
+        except:
+            self.ids.text_output.text = 'Please, select the source image'
 
-    with open(r'D:\translated.txt', 'w') as f:
-        f.write(translation)
-    return translation
+    def translate_to_bg(self):
+        global translation
+        print(translation)
+        if type(translation) == str:
+            self.ids.text_output.text = translation
+            return
+        translation = ''
+        translator = Translator(from_lang="en", to_lang="bg")
+        try:
+            for sentence in recognised_text.split('\n'):
+                translation += f'{translator.translate(sentence)}\n'
+            self.ids.text_output.text = translation
+        except:
+            self.ids.text_output.text = 'There is no text to translate'
+
+    def reset(self):
+        global image, translation, recognised_text
+        image = None
+        translation = None
+        translation = None
+        recognised_text = None
+        self.ids.text_output.text = ''
 
 
-text = ocr()
-# print(text)
+class FileChooserWindow(Screen):
+    image_name = ObjectProperty(None)
+
+    def selected(self, filename):
+        global image
+        self.ids.text_image.source = filename[0]
+        image = filename[0]
+        print(image)
+        return image
 
 
-class MainWidget(Widget):
-    ocr_text = text
-    input_path_text = 'Enter the path to save text files HERE:'
-
-    def translate_press(self):
-        output_text = translate_to_bg()
-        self.ids.translated_box.text = output_text
-        self.ids.translate_button.text = 'TRANSLATED TEXT SAVED'
-        self.ids.copy_button.text = 'COPY TO CLIPBOARD'
-
-    def copy_button_on_release(self):
-        self.ids.copy_button.text = 'COPIED TO CLIPBOARD'
+kv = Builder.load_file('ui.kv')
 
 
-class ImageToText(App):
+class TextRecognition(App):
     def build(self):
-        return MainWidget()
+        return kv
 
 
 if __name__ == '__main__':
-    ImageToText().run()
+    TextRecognition().run()

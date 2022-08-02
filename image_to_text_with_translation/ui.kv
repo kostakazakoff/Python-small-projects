@@ -1,0 +1,116 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+
+<BottomButton@Button>:
+    font_size: 14
+    background_normal: ''
+    background_color: 66/255, 123/255, 245/255, 1
+    size_hint: 1, None
+    height: '40dp'
+
+
+WindowManager:
+    MainWindow:
+    FileChooserWindow:
+
+
+<MainWindow>:
+    id: main
+    name: "main"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: 10
+        padding: 40
+
+        ScrollView:
+
+            Label:
+                id: text_output
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                padding: 10, 10
+                text: '1. "Select image" button - select source image (one click - to view, double-click - to select the file)\n2. "Clear/Add new" button - reset the source and translated text (select new image)\n3. "Source text" button - visualise the recognised text\n4. "Translated text" button - translate the text to BG\n5. Copy to clipboard with "Copy" button'
+
+        GridLayout:
+            size_hint: 1, None
+            height: '90dp'
+            spacing: 10
+            rows: 3
+            cols: 2
+
+            BottomButton:
+                id: explorer
+                text: 'Select image'
+                on_release:
+                    app.root.current = "file_chooser"
+                    root.manager.transition.direction = 'left'
+
+            BottomButton:
+                id: reset
+                text: 'Clear/Add new'
+                on_release: root.reset()
+
+            BottomButton:
+                id: ocr
+                text: 'Source text'
+                on_release: root.ocr()
+
+            BottomButton:
+                id: translator
+                text: 'Translated text'
+                on_release: root.translate_to_bg()
+
+        BottomButton:
+            id: clipboard
+            text: 'Copy'
+            size_hint: None, None
+            width: '160dp'
+            height: '40dp'
+            pos_hint: {"center_x": .5}
+            on_release: Clipboard.copy(text_output.text)
+
+
+
+
+<FileChooserWindow>:
+    name: "file_chooser"
+    id: chooser
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        spacing: 10
+        padding: 40
+
+        GridLayout:
+            rows: 2
+            cols: 1
+            spacing: 10
+
+            ScrollView:
+                Image:
+                    id: text_image
+                    source: ''
+
+            FileChooserIconView:
+
+                id: fc
+                on_selection: root.selected(fc.selection)
+                on_submit:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = 'right'
+
+        BottomButton:
+            text: 'Back'
+            size_hint: None, None
+            width: '160dp'
+            height: '40dp'
+            pos_hint: {"center_x": .5}
+            on_release:
+                app.root.current = 'main'
+                root.manager.transition.direction = 'right'
+
+
