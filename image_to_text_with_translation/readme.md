@@ -9,4 +9,6 @@
 
 ![3](https://user-images.githubusercontent.com/104040753/182483461-9d99da1f-3515-4fa1-a35d-74f2f2cf7b84.png)
 
+![bg](https://user-images.githubusercontent.com/104040753/182574571-edc7e9ae-9a09-45e7-a857-a169766dcbe8.png)
+
 #### За съжаление, тъй като източникът за превод (https://mymemory.translated.net/doc/usagelimits.php) се използва безплатно, има ограничение - 5000 символа/ден
