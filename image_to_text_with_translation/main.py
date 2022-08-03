@@ -20,8 +20,6 @@ class WindowManager(ScreenManager):
 
 
 class MainWindow(Screen):
-    recognised_text = ObjectProperty(None)
-
     def ocr(self):
         global image, recognised_text
         if type(recognised_text) == str:
