@@ -2,11 +2,9 @@
 
 Въведени подобрения в интерфейса и функционалността.
 
-> За да работи програмката, трябва да имате инсталиран Tessaract.
+> За да работи програмката, трябва да имате инсталиран Tessaract - https://github.com/UB-Mannheim/tesseract/wiki
 >
-> Изтеглете си Tessaract от този линк и инсталирайте (за w32, w64...):
->
-> [Link](https://github.com/UB-Mannheim/tesseract/wiki)
+> Изтеглете си Tessaract от този [Link](https://github.com/UB-Mannheim/tesseract/wiki) и инсталирайте (за w32, w64...):
 >
 > Ако Tessaract е инсталиран в папка с път, различен от този - в .py файла, просто въведете валидния път:
 >
