@@ -1,8 +1,6 @@
-from PIL import Image
 from pytesseract import pytesseract
 from translate import Translator
 from kivy.app import App
-from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -26,20 +24,17 @@ class MainWindow(Screen):
 
     def ocr(self):
         global image, recognised_text
-        print(image)
         if type(recognised_text) == str:
             self.ids.text_output.text = recognised_text
             return
         try:
             recognised_text = pytesseract.image_to_string(image, config='--psm 6')
             self.ids.text_output.text = recognised_text
-            print(recognised_text)
         except:
             self.ids.text_output.text = 'Please, select the source image'
 
     def translate_to_bg(self):
         global translation
-        print(translation)
         if type(translation) == str:
             self.ids.text_output.text = translation
             return
@@ -68,7 +63,6 @@ class FileChooserWindow(Screen):
         global image
         self.ids.text_image.source = filename[0]
         image = filename[0]
-        print(image)
         return image
 
 
