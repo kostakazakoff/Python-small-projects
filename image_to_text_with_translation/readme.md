@@ -2,6 +2,15 @@
 
 Въведени подобрения в интерфейса и функционалността.
 
+> За да работи програмката, трябва да имате инсталиран Tessaract - https://github.com/UB-Mannheim/tesseract/wiki
+>
+> Изтеглете си Tessaract от този [Link](https://github.com/UB-Mannheim/tesseract/wiki) и инсталирайте (за w32, w64...):
+>
+> Ако Tessaract е инсталиран в папка с път, различен от този - в .py файла, просто въведете валидния път:
+>
+> ### path_to_tesseract = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+
 
 ![1](https://user-images.githubusercontent.com/104040753/182483343-ce516776-9542-46d1-9657-20f8fe8a1b87.png)
 
