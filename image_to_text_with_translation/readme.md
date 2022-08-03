@@ -2,6 +2,9 @@
 
 Въведени подобрения в интерфейса и функционалността.
 
+Изтеглете си Tessaract от този линк и инсталирайте (за w32, w64...):
+[Link](https://github.com/UB-Mannheim/tesseract/wiki)
+
 
 ![1](https://user-images.githubusercontent.com/104040753/182483343-ce516776-9542-46d1-9657-20f8fe8a1b87.png)
 
