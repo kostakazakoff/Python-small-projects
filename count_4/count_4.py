@@ -50,9 +50,16 @@ def player_choice():
     global player_1_coin, player_2_coin, player_one_name, player_two_name
     os.system('cls' if os.name == 'nt' else 'clear')
     print(f"It's a simple game.\nDrop your coins into the columns.\nIf you have a line of 4 coins (in row, column or diagonal), you win the game.\nHave a fun :)\n")
+    
     player_one_name = input('Player one, enter your name: ')
-    player_two_name = input('Player one, enter your name: ')
-    player_1_coin = input(f'{player_one_name}, choose your coin symbol (O or X): ').upper()
+    player_two_name = input('Player two, enter your name: ')
+
+    while True:
+        player_1_coin = input(f'{player_one_name}, choose your coin symbol (O or X): ').upper()
+        if player_1_coin not in 'XO':
+            continue
+        break
+
     player_2_coin = 'O' if player_1_coin == 'X' else 'X'
     print(f'{player_two_name}, you will play with {player_2_coin}')
 
