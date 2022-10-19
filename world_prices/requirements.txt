@@ -1,0 +1,3 @@
+forex_python==1.8
+kivy==2.1.0
+requests==2.27.1

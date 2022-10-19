@@ -19,7 +19,7 @@ def request_prices(country):
     prices_url = "https://cost-of-living-and-prices.p.rapidapi.com/prices"
     querystring = {"country_name": country}
     headers = {
-        "X-RapidAPI-Key": "##### ENTER YOUR KEY HERE ######",
+        # "X-RapidAPI-Key": "d7b2cfb21emsh20a00fb247fdfcbp19dd36jsn724c6d53f092",
         "X-RapidAPI-Host": "cost-of-living-and-prices.p.rapidapi.com"
     }
     response = requests.request("GET", prices_url, headers=headers, params=querystring)
