@@ -29,7 +29,7 @@ def find_file_by_extension(extension, path):
 
 file_extension = input('What file extension do you search for (exe, mp3,  txt...)?: ')
 system_path = input('Enter/the/path/in/system: ')
-dirs_excluded = input('Enter directories to exclude, separated with coma (example: Dir1, Dir2, ...): ').split(', ')
+dirs_excluded = input('Enter directories to exclude, separated with comma (example: Dir1, Dir2, ...): ').split(', ')
 count = 0
 lines_count = 0
 
