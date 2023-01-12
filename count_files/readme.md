@@ -2,5 +2,3 @@
 
 You can exclude a directory/s from the search (like .venv, .idea, etc..)
 
-For example, you can count your Python code lines...
-To be honest, that's why I made it for :grin:
